@@ -1,4 +1,4 @@
-name: Qt 打包 macOS ARM64 (M1/M2/M3专用)
+name: Qt 打包 macOS ARM64 (M1/M2/M3专用 + 含证书)
 
 on:
   push:
@@ -34,10 +34,12 @@ jobs:
           qmake ../qt_im_project_macOS.pro QMAKE_APPLE_DEVICE_ARCHS="arm64"
           make
 
-      - name: 复制资源
+      - name: 复制资源 + 证书（关键修改）
         run: |
           mkdir -p build/qt_im_project_macOS.app/Contents/Resources/
           cp -r btnimage build/qt_im_project_macOS.app/Contents/Resources/
+          # 👇 把证书文件夹 cert 一起打进安装包
+          cp -r cert build/qt_im_project_macOS.app/Contents/Resources/
 
       - name: 打包 dmg
         run: |
