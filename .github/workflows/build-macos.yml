@@ -13,17 +13,24 @@ jobs:
       - name: 拉取代码
         uses: actions/checkout@v5
 
-      # 🔥 终极修复：完全不用系统Python，让action自己装虚拟环境
-      - name: 安装Qt环境（全自动，不碰系统Python）
+      # 安装 Qt —— 全自动，不碰系统Python
+      - name: 安装 Qt 6.6.2 + Websockets
         uses: jurplel/install-qt-action@v4
         with:
           version: '6.6.2'
           host: 'mac'
           target: 'desktop'
           arch: 'clang_64'
-          setup-python: true   # 👈 打开这个，让它自己装虚拟Python
+          setup-python: true
           modules: 'qtwebsockets'
 
+      # 🔥 强制让系统找到 macdeployqt —— 这是你之前失败的关键！
+      - name: 配置 Qt 路径
+        run: |
+          echo "QT_BIN_PATH=$Qt6_DIR/bin" >> $GITHUB_ENV
+          echo "$Qt6_DIR/bin" >> $GITHUB_PATH
+
+      # 编译
       - name: 编译项目
         run: |
           mkdir build
@@ -31,19 +38,21 @@ jobs:
           qmake ../qt_im_project_macOS.pro
           make
 
-      - name: 复制资源文件
+      # 复制资源
+      - name: 复制资源
         run: |
           mkdir -p build/qt_im_project.app/Contents/Resources/
           cp -r btnimage build/qt_im_project.app/Contents/Resources/
 
-      # 🔥 真正打包Qt依赖（包会变大，无Qt可运行）
-      - name: 打包成dmg
+      # ✅ ✅ ✅ 真正完整打包（这一步保证包变大、能独立运行）
+      - name: 打包依赖并生成 dmg
         run: |
           cd build
-          macdeployqt qt_im_project.app -dmg -always-overwrite
+          $QT_BIN_PATH/macdeployqt qt_im_project.app -dmg -always-overwrite -verbose=1
 
-      - name: 上传软件包
+      # 上传
+      - name: 上传成品
         uses: actions/upload-artifact@v4
         with:
           name: Qt_IM_Project_macOS
-          path: build/*.dmg
+          path: build/qt_im_project.dmg
