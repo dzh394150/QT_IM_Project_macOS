@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: macos-13  # Intel → 可编译通用二进制
+    runs-on: macos-latest  # ✅ 官方支持，绝不报错
 
     steps:
       - name: 拉取代码
@@ -28,7 +28,6 @@ jobs:
           setup-python: false
           modules: 'qtwebsockets'
 
-      # 必须让系统找到 qmake & macdeployqt
       - name: 设置Qt环境变量
         run: |
           echo "PATH=$Qt6_DIR/bin:$PATH" >> $GITHUB_ENV
@@ -45,16 +44,10 @@ jobs:
           mkdir -p build/qt_im_project.app/Contents/Resources/btnimage
           cp -r btnimage/* build/qt_im_project.app/Contents/Resources/btnimage/
 
-      # ✅ 关键修复：完整打包 Qt 所有依赖（这一步让未装Qt的电脑也能运行）
-      - name: 使用 macdeployqt 完整打包依赖
+      - name: 完整打包Qt依赖（无Qt也能运行）
         run: |
           cd build
-          macdeployqt qt_im_project.app \
-            -dmg \
-            -always-overwrite \
-            -qmldir=. \
-            -libpath=$Qt6_DIR/lib \
-            -verbose=2
+          macdeployqt qt_im_project.app -dmg -always-overwrite -libpath=$Qt6_DIR/lib
 
       - name: 上传最终安装包
         uses: actions/upload-artifact@v4
