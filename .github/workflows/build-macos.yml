@@ -13,6 +13,12 @@ jobs:
       - name: 拉取代码
         uses: actions/checkout@v5
 
+      # 🔧 修复：强制使用虚拟环境安装Python依赖，绕过系统限制
+      - name: 配置Python虚拟环境
+        run: |
+          python3 -m venv .venv
+          echo ".venv/bin" >> $GITHUB_PATH
+
       - name: 安装Qt环境 + Websockets组件
         uses: jurplel/install-qt-action@v4
         with:
