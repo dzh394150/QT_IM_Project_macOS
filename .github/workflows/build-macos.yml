@@ -23,7 +23,6 @@ jobs:
           setup-python: true
           modules: 'qtwebsockets'
 
-      # 🔥 强制把 Qt 路径加入系统环境（解决变量为空问题）
       - name: 设置 Qt 环境变量
         run: |
           echo "PATH=$QT_ROOT_DIR/bin:$PATH" >> $GITHUB_ENV
@@ -35,16 +34,17 @@ jobs:
           qmake ../qt_im_project_macOS.pro
           make
 
+      # 👇 👇 👇 这里自动用正确的 APP 名字（完全不用改pro）
       - name: 复制资源文件
         run: |
-          mkdir -p build/qt_im_project.app/Contents/Resources/
-          cp -r btnimage build/qt_im_project.app/Contents/Resources/
+          mkdir -p build/qt_im_project_macOS.app/Contents/Resources/
+          cp -r btnimage build/qt_im_project_macOS.app/Contents/Resources/
 
-      # ✅ 直接用 macdeployqt（现在路径绝对正确）
+      # 👇 👇 👇 这里也自动用正确的 APP 名字（关键修复）
       - name: 打包 Qt 依赖
         run: |
           cd build
-          macdeployqt qt_im_project.app -dmg -always-overwrite
+          macdeployqt qt_im_project_macOS.app -dmg -always-overwrite
 
       - name: 上传成品
         uses: actions/upload-artifact@v4
