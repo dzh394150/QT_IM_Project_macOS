@@ -33,7 +33,7 @@ jobs:
         run: |
           mkdir -p build
           cd build
-          qmake ../20260325windows.pro
+          qmake ../qt_im_project_macOS.pro
           make
 
       # 复制自定义图片资源
