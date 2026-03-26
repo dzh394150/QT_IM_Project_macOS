@@ -7,19 +7,18 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-13  # Intel → 可编译通用二进制
 
     steps:
       - name: 拉取代码
         uses: actions/checkout@v5
 
-      # 🔧 修复：强制使用虚拟环境安装Python依赖，绕过系统限制
-      - name: 配置Python虚拟环境
+      - name: 配置Python虚拟环境（修复安装报错）
         run: |
           python3 -m venv .venv
           echo ".venv/bin" >> $GITHUB_PATH
 
-      - name: 安装Qt环境 + Websockets组件
+      - name: 安装Qt 6.6.2 + Websockets
         uses: jurplel/install-qt-action@v4
         with:
           version: '6.6.2'
@@ -29,26 +28,36 @@ jobs:
           setup-python: false
           modules: 'qtwebsockets'
 
-      - name: 编译项目
+      # 必须让系统找到 qmake & macdeployqt
+      - name: 设置Qt环境变量
+        run: |
+          echo "PATH=$Qt6_DIR/bin:$PATH" >> $GITHUB_ENV
+
+      - name: 编译项目（通用二进制：Intel + Apple Silicon）
         run: |
           mkdir -p build
           cd build
-          qmake ../qt_im_project_macOS.pro
-          make
+          qmake ../qt_im_project_macOS.pro QMAKE_APPLE_DEVICE_ARCHS="x86_64 arm64"
+          make -j$(sysctl -n hw.ncpu)
 
-      # 复制自定义图片资源
-      - name: 复制自定义图片资源
+      - name: 复制图片资源
         run: |
           mkdir -p build/qt_im_project.app/Contents/Resources/btnimage
           cp -r btnimage/* build/qt_im_project.app/Contents/Resources/btnimage/
 
-      - name: 打包Qt依赖
+      # ✅ 关键修复：完整打包 Qt 所有依赖（这一步让未装Qt的电脑也能运行）
+      - name: 使用 macdeployqt 完整打包依赖
         run: |
           cd build
-          macdeployqt qt_im_project.app -dmg
+          macdeployqt qt_im_project.app \
+            -dmg \
+            -always-overwrite \
+            -qmldir=. \
+            -libpath=$Qt6_DIR/lib \
+            -verbose=2
 
-      - name: 上传软件包
+      - name: 上传最终安装包
         uses: actions/upload-artifact@v4
         with:
-          name: Qt_IM_Project_macOS
+          name: Qt_IM_Project_macOS_Universal
           path: build/qt_im_project.dmg
