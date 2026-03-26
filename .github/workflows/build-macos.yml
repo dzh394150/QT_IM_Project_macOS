@@ -7,48 +7,51 @@ on:
 
 jobs:
   build:
-    runs-on: macos-13  # 👈 这个才是能正常打包的 Intel 环境
+    runs-on: macos-latest  # 唯一支持的环境
 
     steps:
-      - uses: actions/checkout@v5
+      - name: 拉取代码
+        uses: actions/checkout@v5
 
-      # 安装系统依赖 + 修复Python
-      - name: 安装依赖
+      # 🔥 强制修复Python安装报错（最关键）
+      - name: 修复Python环境
         run: |
-          python3 -m pip install py7zr setuptools --break-system-packages
+          python3 -m pip install -U pip setuptools py7zr --break-system-packages
 
-      # 安装 Qt
-      - name: 安装 Qt 6.6.2
+      - name: 安装Qt 6.6.2 + Websockets
         uses: jurplel/install-qt-action@v4
         with:
           version: '6.6.2'
-          host: mac
-          target: desktop
-          arch: clang_64
+          host: 'mac'
+          target: 'desktop'
+          arch: 'clang_64'
           setup-python: false
-          modules: qtwebsockets
+          modules: 'qtwebsockets'
 
-      # 编译（通用二进制：Intel + M 芯片）
+      # 🔥 强制让系统找到Qt工具
+      - name: 配置环境变量
+        run: |
+          echo "PATH=$Qt6_DIR/bin:$PATH" >> $GITHUB_ENV
+
       - name: 编译项目
         run: |
-          mkdir build
+          mkdir -p build
           cd build
-          qmake ../qt_im_project_macOS.pro QMAKE_APPLE_DEVICE_ARCHS="x86_64 arm64"
+          qmake ../qt_im_project_macOS.pro
           make
 
-      # 复制资源
       - name: 复制资源文件
         run: |
+          mkdir -p build/qt_im_project.app/Contents/Resources/
           cp -r btnimage build/qt_im_project.app/Contents/Resources/
 
-      # 🔥 关键：真正完整打包 Qt 依赖
-      - name: 打包成 dmg
+      # 🔥 真正完整打包依赖（这一步会让包变大、可独立运行）
+      - name: 打包dmg
         run: |
           cd build
           macdeployqt qt_im_project.app -dmg -always-overwrite
 
-      # 上传
-      - name: 上传文件
+      - name: 上传安装包
         uses: actions/upload-artifact@v4
         with:
           name: Qt_IM_Project_macOS
