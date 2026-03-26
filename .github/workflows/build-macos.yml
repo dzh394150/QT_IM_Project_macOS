@@ -7,35 +7,26 @@ on:
 
 jobs:
   build:
-    runs-on: macos-latest  # 唯一支持的环境
+    runs-on: macos-latest
 
     steps:
       - name: 拉取代码
         uses: actions/checkout@v5
 
-      # 🔥 强制修复Python安装报错（最关键）
-      - name: 修复Python环境
-        run: |
-          python3 -m pip install -U pip setuptools py7zr --break-system-packages
-
-      - name: 安装Qt 6.6.2 + Websockets
+      # 🔥 终极修复：完全不用系统Python，让action自己装虚拟环境
+      - name: 安装Qt环境（全自动，不碰系统Python）
         uses: jurplel/install-qt-action@v4
         with:
           version: '6.6.2'
           host: 'mac'
           target: 'desktop'
           arch: 'clang_64'
-          setup-python: false
+          setup-python: true   # 👈 打开这个，让它自己装虚拟Python
           modules: 'qtwebsockets'
-
-      # 🔥 强制让系统找到Qt工具
-      - name: 配置环境变量
-        run: |
-          echo "PATH=$Qt6_DIR/bin:$PATH" >> $GITHUB_ENV
 
       - name: 编译项目
         run: |
-          mkdir -p build
+          mkdir build
           cd build
           qmake ../qt_im_project_macOS.pro
           make
@@ -45,13 +36,13 @@ jobs:
           mkdir -p build/qt_im_project.app/Contents/Resources/
           cp -r btnimage build/qt_im_project.app/Contents/Resources/
 
-      # 🔥 真正完整打包依赖（这一步会让包变大、可独立运行）
-      - name: 打包dmg
+      # 🔥 真正打包Qt依赖（包会变大，无Qt可运行）
+      - name: 打包成dmg
         run: |
           cd build
           macdeployqt qt_im_project.app -dmg -always-overwrite
 
-      - name: 上传安装包
+      - name: 上传软件包
         uses: actions/upload-artifact@v4
         with:
           name: Qt_IM_Project_macOS
