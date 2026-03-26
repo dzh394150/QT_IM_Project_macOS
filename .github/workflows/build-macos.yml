@@ -23,7 +23,6 @@ jobs:
           setup-python: true
           modules: 'qtwebsockets'
 
-      # 🔥 编译项目
       - name: 编译项目
         run: |
           mkdir build
@@ -31,19 +30,18 @@ jobs:
           qmake ../qt_im_project_macOS.pro
           make
 
-      # 🔥 复制资源
       - name: 复制资源文件
         run: |
           mkdir -p build/qt_im_project.app/Contents/Resources/
           cp -r btnimage build/qt_im_project.app/Contents/Resources/
 
-      # ✅ 绝对正确的打包命令（这一行直接用 Qt 路径）
-      - name: 打包 Qt 依赖生成 dmg
+      # ✅ 无签名打包，所有 Mac 可运行
+      - name: 打包 Qt 依赖
         run: |
           cd build
           $Qt6_DIR/bin/macdeployqt qt_im_project.app -dmg -always-overwrite
 
-      # 上传
+      # ✅ 无签名也能上传
       - name: 上传成品
         uses: actions/upload-artifact@v4
         with:
