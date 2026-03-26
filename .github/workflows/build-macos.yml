@@ -1,4 +1,4 @@
-name: Qt 自动编译打包 (macOS)
+name: Qt 自动编译打包 (macOS 通用版 Intel+M系列)
 
 on:
   push:
@@ -27,20 +27,19 @@ jobs:
         run: |
           echo "PATH=$QT_ROOT_DIR/bin:$PATH" >> $GITHUB_ENV
 
-      - name: 编译项目
+      # 🔥 🔥 🔥 这一行是关键：编译通用架构（Intel + M系列）
+      - name: 编译项目（通用版）
         run: |
           mkdir build
           cd build
-          qmake ../qt_im_project_macOS.pro
+          qmake ../qt_im_project_macOS.pro QMAKE_APPLE_DEVICE_ARCHS="arm64 x86_64"
           make
 
-      # 👇 👇 👇 这里自动用正确的 APP 名字（完全不用改pro）
       - name: 复制资源文件
         run: |
           mkdir -p build/qt_im_project_macOS.app/Contents/Resources/
           cp -r btnimage build/qt_im_project_macOS.app/Contents/Resources/
 
-      # 👇 👇 👇 这里也自动用正确的 APP 名字（关键修复）
       - name: 打包 Qt 依赖
         run: |
           cd build
@@ -49,5 +48,5 @@ jobs:
       - name: 上传成品
         uses: actions/upload-artifact@v4
         with:
-          name: Qt_IM_Project_macOS
+          name: Qt_IM_Project_macOS_Universal
           path: build/*.dmg
