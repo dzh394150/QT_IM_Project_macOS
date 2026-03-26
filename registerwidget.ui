@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>RegisterWidget</class>
+ <widget class="QWidget" name="RegisterWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>550</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>5</number>
+   </property>
+   <property name="topMargin">
+    <number>5</number>
+   </property>
+   <property name="rightMargin">
+    <number>5</number>
+   </property>
+   <property name="bottomMargin">
+    <number>5</number>
+   </property>
+   <item>
+    <widget class="QWidget" name="shadowwidget" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>0</number>
+      </property>
+      <property name="leftMargin">
+       <number>0</number>
+      </property>
+      <property name="topMargin">
+       <number>0</number>
+      </property>
+      <property name="rightMargin">
+       <number>0</number>
+      </property>
+      <property name="bottomMargin">
+       <number>0</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="widget_1" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>35</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#widget_1 {
+    /* 浅灰色背景（微信PC端常用浅灰） */
+    background-color: #FFFFFF !important;
+
+    /* 左上角圆角8px（保持原始值，不×5） */
+    border-top-left-radius: 8px !important;
+    /* 左下角圆角8px（保持原始值） */
+    /* border-bottom-left-radius: 8px !important;*/
+    border-top-right-radius: 8px !important;
+    /* 右上/右下不设圆角，默认尖角，无需额外写 */
+    /* 强制显示，排除隐藏/透明干扰 */
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+</string>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QWidget" name="widget_1_2" native="true">
+           <property name="minimumSize">
+            <size>
+             <width>150</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLabel" name="label_1_2">
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#label_1_2 {
+    /* 浅灰色文字（#CCCCCC是通用浅灰，视觉舒适） */
+    color: #CCCCCC !important;
+    /* 可选：防止父样式覆盖，兜底 */
+    background-color: transparent !important;
+}</string>
+              </property>
+              <property name="text">
+               <string>   singchat</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Orientation::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>337</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_1_1" native="true">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>50</width>
+             <height>35</height>
+            </size>
+           </property>
+           <layout class="QHBoxLayout" name="horizontalLayout">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="leftMargin">
+             <number>0</number>
+            </property>
+            <property name="topMargin">
+             <number>0</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
+            <property name="bottomMargin">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="btnClose">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>16777215</width>
+                <height>35</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>楷体</family>
+                <pointsize>16</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#btnClose {
+    /* 基础样式：无边框 + 四角圆角 + 透明背景 */
+    border: none !important;                /* 彻底隐藏边框 */
+
+    background: transparent !important;     /* 初始透明 */
+    /* 右上角圆角8px（保持原始值，不×5） */
+    border-top-right-radius: 8px !important;
+
+    outline: none !important;               /* 去掉焦点框（QT默认点击后会有） */
+}
+
+
+/* 鼠标悬浮：浅一号的玫瑰红 */
+#btnClose:hover {
+    background-color: #E02041 !important; /* 悬浮浅玫瑰红，比默认色淡 */
+	color: #FFFFFF !important; /* 悬浮时字体白色 */
+}
+
+/* 鼠标按下：颜色变深（深一号的玫瑰红） */
+#btnClose:pressed {
+    background-color: #C01838 !important; /* 按下深玫瑰红，比默认色深 */
+	color: #FFFFFF !important; /* 悬浮时字体白色 */
+}</string>
+              </property>
+              <property name="text">
+               <string>×</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_2" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>400</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>400</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">#widget_2 {
+    background-color: #FFFFFF !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: none !important;
+
+    /* QT全版本兼容的左右阴影（单阴影写法，无语法错误） */
+    box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.08) !important;
+
+    qproperty-frameShape: NoFrame;
+    qproperty-frameShadow: Plain;
+    background-clip: padding-box !important;
+
+}</string>
+        </property>
+        <widget class="QLineEdit" name="leRegUsername">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>150</y>
+           <width>311</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#leRegUsername {
+    /* ① 彻底隐藏边框（包括默认的焦点边框） */
+    border: none !important;
+    outline: none !important;
+    
+    /* ② 圆角矩形（12px是微信输入框常用圆角，可按需调整） */
+    border-radius: 12px !important;
+    
+    /* ③ 底色设为#F0F0F0灰色 */
+    background-color: #F0F0F0 !important;
+    
+    /* 优化：内边距，避免文字贴圆角边缘（可选但推荐） */
+    padding: 6px 12px !important;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="frame">
+          <bool>true</bool>
+         </property>
+         <property name="placeholderText">
+          <string>账号</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="leRegPassword">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>210</y>
+           <width>311</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#leRegPassword {
+    /* ① 彻底隐藏边框（包括默认的焦点边框） */
+    border: none !important;
+    outline: none !important;
+    
+    /* ② 圆角矩形（12px是微信输入框常用圆角，可按需调整） */
+    border-radius: 12px !important;
+    
+    /* ③ 底色设为#F0F0F0灰色 */
+    background-color: #F0F0F0 !important;
+    
+    /* 优化：内边距，避免文字贴圆角边缘（可选但推荐） */
+    padding: 6px 12px !important;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>密码</string>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label">
+         <property name="geometry">
+          <rect>
+           <x>50</x>
+           <y>10</y>
+           <width>301</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>20</pointsize>
+          </font>
+         </property>
+         <property name="text">
+          <string>注册一个新账号</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="leRegConfirmPwd">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>270</y>
+           <width>311</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#leRegConfirmPwd {
+    /* ① 彻底隐藏边框（包括默认的焦点边框） */
+    border: none !important;
+    outline: none !important;
+    
+    /* ② 圆角矩形（12px是微信输入框常用圆角，可按需调整） */
+    border-radius: 12px !important;
+    
+    /* ③ 底色设为#F0F0F0灰色 */
+    background-color: #F0F0F0 !important;
+    
+    /* 优化：内边距，避免文字贴圆角边缘（可选但推荐） */
+    padding: 6px 12px !important;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>再次输入密码</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="btnAvatar">
+         <property name="geometry">
+          <rect>
+           <x>150</x>
+           <y>50</y>
+           <width>90</width>
+           <height>90</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#btnAvatar {
+    /* 核心：深灰色(#999999)虚线边框（替代原浅灰#F0F0F0） */
+    border: 1px dashed #999999 !important; /* 1px虚线 + 深灰色，视觉更醒目 */
+
+    
+    /* 文本颜色：同步改为深灰色#999999 */
+    color: #999999 !important;
+    
+    /* 背景透明，适配多数场景（如需深色底可替换） */
+    background-color: transparent !important;
+    
+    /* 内边距：避免文字贴边框，提升排版舒适度 */
+    padding: 6px 12px !important;
+    
+    /* 清除QT默认焦点框/多余样式 */
+    outline: none !important;
+}
+
+/* 鼠标悬浮：虚线+文本稍深，增强交互反馈 */
+#btnSelectAvatar:hover {
+    border-color: #888888 !important; /* 悬浮时深一级灰色 */
+    color: #888888 !important;
+    background-color: rgba(0, 0, 0, 0.03) !important; /* 轻微背景灰，不突兀 */
+}
+
+/* 鼠标按下：虚线+文本再深，模拟按压质感 */
+#btnSelectAvatar:pressed {
+    border-color: #777777 !important; /* 按下时最深一级灰色 */
+    color: #777777 !important;
+}</string>
+         </property>
+         <property name="text">
+          <string>选择头像</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="input_reg_yanzhengma">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>330</y>
+           <width>181</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#input_reg_yanzhengma {
+    /* ① 彻底隐藏边框（包括默认的焦点边框） */
+    border: none !important;
+    outline: none !important;
+    
+    /* ② 圆角矩形（12px是微信输入框常用圆角，可按需调整） */
+    border-radius: 12px !important;
+    
+    /* ③ 底色设为#F0F0F0灰色 */
+    background-color: #F0F0F0 !important;
+    
+    /* 优化：内边距，避免文字贴圆角边缘（可选但推荐） */
+    padding: 6px 12px !important;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="placeholderText">
+          <string>请输入验证码</string>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="get_reg_yanzhengma">
+         <property name="geometry">
+          <rect>
+           <x>240</x>
+           <y>330</y>
+           <width>101</width>
+           <height>41</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#get_reg_yanzhengma {
+    /* ① 彻底隐藏边框（包括默认的焦点边框） */
+    border: none !important;
+    outline: none !important;
+    
+    /* ② 圆角矩形（12px微信输入框常用圆角，保留原有设计） */
+    border-radius: 12px !important;
+    
+    /* 常态：微信经典发送按钮绿（核心色 #07C160） */
+    background-color: #07C160 !important;
+    
+    /* 字体颜色设为纯白色，与绿色背景对比清晰 */
+    color: #FFFFFF !important;
+    
+    /* 优化：内边距，避免文字贴圆角边缘（保留原有优化） */
+    padding: 6px 12px !important;
+}
+
+/* 鼠标悬浮：微信绿深一级（#06B058），视觉反馈自然 */
+#get_reg_yanzhengma:hover {
+    background-color: #06B058 !important;
+}
+
+/* 鼠标按下：微信绿最深级（#059E4E），模拟按压下沉质感 */
+#get_reg_yanzhengma:pressed {
+    background-color: #059E4E !important;
+}</string>
+         </property>
+         <property name="text">
+          <string>获取验证码</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_3" native="true">
+        <property name="styleSheet">
+         <string notr="true">#widget_3 {
+    /* 浅灰色背景（微信PC端常用浅灰） */
+    background-color: #FFFFFF !important;
+
+    /* 左下角圆角8px（保持原始值，不×5） */
+    border-bottom-left-radius: 8px !important;
+    /* 左下角圆角8px（保持原始值） */
+    /* border-bottom-left-radius: 8px !important;*/
+    border-bottom-right-radius: 8px !important;
+    /* 右上/右下不设圆角，默认尖角，无需额外写 */
+    /* 强制显示，排除隐藏/透明干扰 */
+    visibility: visible !important;
+    opacity: 1 !important;
+}</string>
+        </property>
+        <widget class="QPushButton" name="btnRegister">
+         <property name="geometry">
+          <rect>
+           <x>40</x>
+           <y>30</y>
+           <width>311</width>
+           <height>51</height>
+          </rect>
+         </property>
+         <property name="font">
+          <font>
+           <family>微软雅黑</family>
+           <pointsize>12</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">#btnRegister {
+    /* ① 彻底隐藏边框（包括默认的焦点边框） */
+    border: none !important;
+    outline: none !important;
+    
+    /* ② 圆角矩形（12px微信输入框常用圆角，保留原有设计） */
+    border-radius: 12px !important;
+    
+    /* 常态：微信经典发送按钮绿（核心色 #07C160） */
+    background-color: #07C160 !important;
+    
+    /* 字体颜色设为纯白色，与绿色背景对比清晰 */
+    color: #FFFFFF !important;
+    
+    /* 优化：内边距，避免文字贴圆角边缘（保留原有优化） */
+    padding: 6px 12px !important;
+}
+
+/* 鼠标悬浮：微信绿深一级（#06B058），视觉反馈自然 */
+#btnRegister:hover {
+    background-color: #06B058 !important;
+}
+
+/* 鼠标按下：微信绿最深级（#059E4E），模拟按压下沉质感 */
+#btnRegister:pressed {
+    background-color: #059E4E !important;
+}</string>
+         </property>
+         <property name="text">
+          <string>注册</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

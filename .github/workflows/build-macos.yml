@@ -1,0 +1,48 @@
+name: Qt 自动编译打包 (macOS)
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v5
+
+      - name: 安装Qt环境 + Websockets组件
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '6.6.2'
+          host: 'mac'
+          target: 'desktop'
+          arch: 'clang_64'
+          setup-python: false
+          modules: 'qtwebsockets'
+
+      - name: 编译项目
+        run: |
+          mkdir -p build
+          cd build
+          qmake ../20260325windows.pro
+          make
+
+      # 复制自定义图片资源
+      - name: 复制自定义图片资源
+        run: |
+          mkdir -p build/qt_im_project.app/Contents/Resources/btnimage
+          cp -r btnimage/* build/qt_im_project.app/Contents/Resources/btnimage/
+
+      - name: 打包Qt依赖
+        run: |
+          cd build
+          macdeployqt qt_im_project.app -dmg
+
+      - name: 上传软件包
+        uses: actions/upload-artifact@v4
+        with:
+          name: Qt_IM_Project_macOS
+          path: build/qt_im_project.dmg

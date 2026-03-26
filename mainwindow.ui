@@ -1,0 +1,2104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>600</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* MainWindow透明 */
+MainWindow {
+    background: transparent !important; 
+    border: none !important;
+} 
+
+</string>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>600</width>
+     <height>600</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">/* QT 6.10适配：centralWidget透明，避免遮挡 */
+centralWidget {
+    background: transparent !important;
+    border: none !important;
+}</string>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QWidget" name="widget1" native="true">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>60</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>60</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#widget1 {
+    /* 浅灰色背景（微信PC端常用浅灰） */
+    background-color: #F0F0F0 !important;
+    /* 深灰色0.5px边框（增强视觉区分） */
+    border: 0.5px solid #D6D6D6 !important;
+    /* 左上角圆角8px（保持原始值，不×5） */
+    border-top-left-radius: 8px !important;
+    /* 左下角圆角8px（保持原始值） */
+    border-bottom-left-radius: 8px !important;
+    /* 右上/右下不设圆角，默认尖角，无需额外写 */
+    /* 强制显示，排除隐藏/透明干扰 */
+    visibility: visible !important;
+    opacity: 1 !important;
+}</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QWidget" name="widget1_1" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>80</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>60</width>
+           <height>80</height>
+          </size>
+         </property>
+         <widget class="QPushButton" name="userAvatar">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>20</y>
+            <width>40</width>
+            <height>40</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#userAvatar {
+    /* 基础样式：无边框 + 四角圆角 + 透明背景 */
+    border: none !important;                /* 彻底隐藏边框 */
+    border-radius: 8px !important;          /* 四角圆角（值可按需调整，如6px/10px） */
+    background: transparent !important;     /* 初始透明 */
+
+    outline: none !important;               /* 去掉焦点框（QT默认点击后会有） */
+}
+
+/* 鼠标悬浮：比#F0F0F0稍深的灰色（#EBEBEB，过渡自然） */
+#userAvatar:hover {
+    background-color: #DCDCDC !important;
+}
+
+/* 鼠标按下：更深一点的灰色（#DCDCDC，质感沉稳） */
+#userAvatar:pressed {
+    background-color: #CCCCCC !important;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget1_2" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>360</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>60</width>
+           <height>360</height>
+          </size>
+         </property>
+         <widget class="QPushButton" name="btnLookFriend">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>60</y>
+            <width>40</width>
+            <height>40</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#btnLookFriend {
+    width: 40px !important;
+    height: 40px !important;
+    border-image: url(btnimage/联系人常态.png) 0 0 0 0 stretch stretch;
+    border: none;
+    background-color: transparent;
+    padding: 0px !important;
+}
+
+QPushButton#btnLookFriend:checked {
+    border-image: url(btnimage/联系人按下.png) 0 0 0 0 stretch stretch !important;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="btnStartChat">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>40</width>
+            <height>40</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#btnStartChat {
+    width: 40px !important;
+    height: 40px !important;
+    border-image: url(btnimage/chat常态.png) 0 0 0 0 stretch stretch;
+    border: none;
+    background-color: transparent;
+    padding: 0px !important;
+}
+
+QPushButton#btnStartChat:checked {
+    border-image: url(btnimage/chat选中.png) 0 0 0 0 stretch stretch !important;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="groupchat">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>110</y>
+            <width>40</width>
+            <height>40</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton#groupchat {
+    width: 40px !important;
+    height: 40px !important;
+    border-image: url(btnimage/群聊常态.png) 0 0 0 0 stretch stretch;
+    border: none;
+    background-color: transparent;
+    padding: 0px !important;
+}
+
+QPushButton#groupchat:checked {
+    border-image: url(btnimage/群聊选中.png) 0 0 0 0 stretch stretch !important;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer1_2_and_1_3">
+         <property name="orientation">
+          <enum>Qt::Orientation::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>47</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget1_3" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>60</width>
+           <height>110</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>60</width>
+           <height>110</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget2">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>1677715</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#stackedWidget2 {
+    /* 浅灰色背景（保留原有） */
+    background-color: #FFFFFF !important;
+    /* 仅显示上下边框，左右无边框（核心修改） */
+    border-top: 0.5px solid #D6D6D6 !important;    /* 上边框：0.5px深灰实心 */
+    border-bottom: 0.5px solid #D6D6D6 !important; /* 下边框：0.5px深灰实心 */
+    border-left: none !important;                /* 左边框：隐藏 */
+    border-right: none !important;               /* 右边框：隐藏 */
+    /* 强制显示，排除隐藏/透明干扰（保留原有） */
+    visibility: visible !important;
+    opacity: 1 !important;
+}</string>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="stackedWidget2_chat">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="widget2_chat_1" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>80</height>
+           </size>
+          </property>
+          <widget class="QLineEdit" name="lineEdit2_chat_2">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>30</y>
+             <width>181</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#lineEdit2_chat_2 {
+    /* ① 彻底隐藏边框（包括默认的焦点边框） */
+    border: none !important;
+    outline: none !important;
+    
+    /* ② 圆角矩形（12px是微信输入框常用圆角，可按需调整） */
+    border-radius: 12px !important;
+    
+    /* ③ 底色设为#F0F0F0灰色 */
+    background-color: #F0F0F0 !important;
+    
+    /* 优化：内边距，避免文字贴圆角边缘（可选但推荐） */
+    padding: 6px 12px !important;
+}</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget2_chat_2" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QListView" name="person_list">
+             <property name="styleSheet">
+              <string notr="true">#person_list {
+    /* 1. 彻底无边框（核心需求） */
+    border: none !important;          /* 去掉列表原生边框 */
+    outline: none !important;         /* 去掉焦点高亮框 */
+    
+    /* 2. 微信风格背景色 */
+    background-color: #FFFFFF !important; /* 和微信消息列表背景一致 */
+    
+    /* 3. 列表项间距（可选，模拟微信列表项间距） */
+    spacing: 2px !important;
+}
+
+/* 美化滚动条（微信窄滚动条，可选但推荐） */
+#person_list QScrollBar:vertical {
+    background: transparent !important; /* 滚动条背景透明 */
+    width: 6px !important;              /* 窄滚动条，贴合微信 */
+}
+#person_list QScrollBar::handle:vertical {
+    background-color: #D1D1D1 !important; /* 滚动条滑块颜色 */
+    border-radius: 3px !important;        /* 滑块圆角 */
+}
+#person_list QScrollBar::handle:vertical:hover {
+    background-color: #BFBFBF !important; /* 鼠标悬浮滑块加深 */
+}
+#person_list QScrollBar::add-page:vertical,
+#person_list QScrollBar::sub-page:vertical {
+    background: transparent !important; /* 滚动条空白区域透明 */
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="stackedWidget2_info">
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="widget2_info_1" native="true">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>80</height>
+           </size>
+          </property>
+          <widget class="QLineEdit" name="lineEdit2_chat_1">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>30</y>
+             <width>141</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#lineEdit2_chat_1 {
+    /* ① 彻底隐藏边框（包括默认的焦点边框） */
+    border: none !important;
+    outline: none !important;
+    
+    /* ② 圆角矩形（12px是微信输入框常用圆角，可按需调整） */
+    border-radius: 12px !important;
+    
+    /* ③ 底色设为#F0F0F0灰色 */
+    background-color: #F0F0F0 !important;
+    
+    /* 优化：内边距，避免文字贴圆角边缘（可选但推荐） */
+    padding: 6px 12px !important;
+}</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnAddFriends">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>30</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>等线</family>
+             <pointsize>24</pointsize>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#btnAddFriends {
+    /* 基础样式：无边框 + 四角圆角 + 透明背景 */
+    border: none !important;                /* 彻底隐藏边框 */
+    border-radius: 8px !important;          /* 四角圆角（值可按需调整，如6px/10px） */
+    background-color: #F0F0F0 !important;
+    outline: none !important;               /* 去掉焦点框（QT默认点击后会有） */
+    /* 新增：设置字体颜色（#666666是比#F0F0F0深得多的灰色，可读性佳） */
+    color: #AAAAAA !important;
+}
+
+/* 鼠标悬浮：比#F0F0F0稍深的灰色，字体颜色保持不变 */
+#btnAddFriends:hover {
+    background-color: #DCDCDC !important;
+    /* 显式继承/保留相同字体颜色，防止被其他样式覆盖 */
+    color: #AAAAAA !important;
+}
+
+/* 鼠标按下：更深一点的灰色，字体颜色保持不变 */
+#btnAddFriends:pressed {
+    background-color: #CCCCCC !important;
+    /* 显式继承/保留相同字体颜色，防止被其他样式覆盖 */
+    color: #AAAAAA !important;
+}</string>
+           </property>
+           <property name="text">
+            <string>+</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget2_info_2" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout_7">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QListView" name="friendRequest_list">
+             <property name="styleSheet">
+              <string notr="true">#friendRequest_list {
+    /* 1. 彻底无边框（核心需求） */
+    border: none !important;          /* 去掉列表原生边框 */
+    outline: none !important;         /* 去掉焦点高亮框 */
+    
+    /* 2. 微信风格背景色 */
+    background-color: #FFFFFF !important; /* 和微信消息列表背景一致 */
+    
+    /* 3. 列表项间距（可选，模拟微信列表项间距） */
+    spacing: 2px !important;
+}
+
+/* 美化滚动条（微信窄滚动条，可选但推荐） */
+#friendRequest_list QScrollBar:vertical {
+    background: transparent !important; /* 滚动条背景透明 */
+    width: 6px !important;              /* 窄滚动条，贴合微信 */
+}
+#friendRequest_list QScrollBar::handle:vertical {
+    background-color: #D1D1D1 !important; /* 滚动条滑块颜色 */
+    border-radius: 3px !important;        /* 滑块圆角 */
+}
+#friendRequest_list QScrollBar::handle:vertical:hover {
+    background-color: #BFBFBF !important; /* 鼠标悬浮滑块加深 */
+}
+#friendRequest_list QScrollBar::add-page:vertical,
+#friendRequest_list QScrollBar::sub-page:vertical {
+    background: transparent !important; /* 滚动条空白区域透明 */
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="stackedWidget2_group">
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="foundarea" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>200</width>
+            <height>80</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>200</width>
+            <height>80</height>
+           </size>
+          </property>
+          <widget class="QPushButton" name="btnCreateGroup">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>160</x>
+             <y>30</y>
+             <width>30</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>等线</family>
+             <pointsize>24</pointsize>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#btnCreateGroup {
+    /* 基础样式：无边框 + 四角圆角 + 透明背景 */
+    border: none !important;                /* 彻底隐藏边框 */
+    border-radius: 8px !important;          /* 四角圆角（值可按需调整，如6px/10px） */
+    background-color: #F0F0F0 !important;
+    outline: none !important;               /* 去掉焦点框（QT默认点击后会有） */
+    /* 新增：设置字体颜色（#666666是比#F0F0F0深得多的灰色，可读性佳） */
+    color: #AAAAAA !important;
+}
+
+/* 鼠标悬浮：比#F0F0F0稍深的灰色，字体颜色保持不变 */
+#btnCreateGroup:hover {
+    background-color: #DCDCDC !important;
+    /* 显式继承/保留相同字体颜色，防止被其他样式覆盖 */
+    color: #AAAAAA !important;
+}
+
+/* 鼠标按下：更深一点的灰色，字体颜色保持不变 */
+#btnCreateGroup:pressed {
+    background-color: #CCCCCC !important;
+    /* 显式继承/保留相同字体颜色，防止被其他样式覆盖 */
+    color: #AAAAAA !important;
+}</string>
+           </property>
+           <property name="text">
+            <string>+</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="groupfoud">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>30</y>
+             <width>141</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#groupfoud {
+    /* ① 彻底隐藏边框（包括默认的焦点边框） */
+    border: none !important;
+    outline: none !important;
+    
+    /* ② 圆角矩形（12px是微信输入框常用圆角，可按需调整） */
+    border-radius: 12px !important;
+    
+    /* ③ 底色设为#F0F0F0灰色 */
+    background-color: #F0F0F0 !important;
+    
+    /* 优化：内边距，避免文字贴圆角边缘（可选但推荐） */
+    padding: 6px 12px !important;
+}</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="groupwidget" native="true">
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QListView" name="group_list">
+             <property name="styleSheet">
+              <string notr="true">#group_list {
+    /* 1. 彻底无边框（核心需求） */
+    border: none !important;          /* 去掉列表原生边框 */
+    outline: none !important;         /* 去掉焦点高亮框 */
+    
+    /* 2. 微信风格背景色 */
+    background-color: #FFFFFF !important; /* 和微信消息列表背景一致 */
+    
+    /* 3. 列表项间距（可选，模拟微信列表项间距） */
+    spacing: 2px !important;
+}
+
+/* 美化滚动条（微信窄滚动条，可选但推荐） */
+#group_list QScrollBar:vertical {
+    background: transparent !important; /* 滚动条背景透明 */
+    width: 6px !important;              /* 窄滚动条，贴合微信 */
+}
+#group_list QScrollBar::handle:vertical {
+    background-color: #D1D1D1 !important; /* 滚动条滑块颜色 */
+    border-radius: 3px !important;        /* 滑块圆角 */
+}
+#group_list QScrollBar::handle:vertical:hover {
+    background-color: #BFBFBF !important; /* 鼠标悬浮滑块加深 */
+}
+#group_list QScrollBar::add-page:vertical,
+#group_list QScrollBar::sub-page:vertical {
+    background: transparent !important; /* 滚动条空白区域透明 */
+}</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget3">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">#stackedWidget3 {
+    /* 浅灰色背景（微信PC端常用浅灰） */
+    background-color: #F5F5F5 !important;
+    /* 深灰色1px边框（增强视觉区分） */
+    border: 0.5px solid #D6D6D6 !important;
+    /* 右上角圆角8px（保持原始值，不×5） */
+    border-top-right-radius: 8px !important;
+    /* 右下角圆角8px（保持原始值） */
+    border-bottom-right-radius: 8px !important;
+    /* 右上/右下不设圆角，默认尖角，无需额外写 */
+    /* 强制显示，排除隐藏/透明干扰 */
+    visibility: visible !important;
+    opacity: 1 !important;
+}</string>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="stackedWidget3_chat">
+       <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0,0,0,0,0">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="widget3_1" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>385</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget3_1_1" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>120</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>120</width>
+               <height>30</height>
+              </size>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_9">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="minimize_botton">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>宋体</family>
+                  <pointsize>18</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#minimize_botton {
+    /* 基础样式：无边框 + 四角圆角 + 透明背景 */
+    border: none !important;                /* 彻底隐藏边框 */
+
+    background: transparent !important;     /* 初始透明 */
+
+    outline: none !important;               /* 去掉焦点框（QT默认点击后会有） */
+}
+
+/* 鼠标悬浮：比#F0F0F0稍深的灰色（#EBEBEB，过渡自然） */
+#minimize_botton:hover {
+    background-color: #DCDCDC !important;
+}
+
+/* 鼠标按下：更深一点的灰色（#DCDCDC，质感沉稳） */
+#minimize_botton:pressed {
+    background-color: #CCCCCC !important;
+}</string>
+                </property>
+                <property name="text">
+                 <string>-</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="maximize_botton">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>黑体</family>
+                  <pointsize>10</pointsize>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#maximize_botton {
+    /* 基础样式：无边框 + 四角圆角 + 透明背景 */
+    border: none !important;                /* 彻底隐藏边框 */
+
+    background: transparent !important;     /* 初始透明 */
+
+    outline: none !important;               /* 去掉焦点框（QT默认点击后会有） */
+}
+
+/* 鼠标悬浮：比#F0F0F0稍深的灰色（#EBEBEB，过渡自然） */
+#maximize_botton:hover {
+    background-color: #DCDCDC !important;
+}
+
+/* 鼠标按下：更深一点的灰色（#DCDCDC，质感沉稳） */
+#maximize_botton:pressed {
+    background-color: #CCCCCC !important;
+}</string>
+                </property>
+                <property name="text">
+                 <string>□</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="close_botton">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>楷体</family>
+                  <pointsize>12</pointsize>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#close_botton {
+    /* 基础样式：无边框 + 四角圆角 + 透明背景 */
+    border: none !important;                /* 彻底隐藏边框 */
+
+    background: transparent !important;     /* 初始透明 */
+    /* 右上角圆角8px（保持原始值，不×5） */
+    border-top-right-radius: 8px !important;
+
+    outline: none !important;               /* 去掉焦点框（QT默认点击后会有） */
+}
+
+/* 鼠标悬浮：比#F0F0F0稍深的灰色（#EBEBEB，过渡自然） */
+#close_botton:hover {
+    background-color: #E52222 !important;
+    color: #FFFFFF !important; 
+}
+
+/* 鼠标按下：更深一点的灰色（#DCDCDC，质感沉稳） */
+#close_botton:pressed {
+    background-color: #D01E1E !important;
+    color: #FFFFFF !important; 
+}</string>
+                </property>
+                <property name="text">
+                 <string>×</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget3_2" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>50</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QWidget" name="widget3_2_2" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>198</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_7">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>20</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>10</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="person_name">
+                <property name="font">
+                 <font>
+                  <pointsize>12</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer3_2">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>455</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget3_2_1" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>80</width>
+               <height>50</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>80</width>
+               <height>50</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget3_3" native="true">
+          <property name="font">
+           <font>
+            <family>方正粗黑宋简体</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#widget3_3 {
+    /* 浅灰色背景（保留原有） */
+    background-color: #F0F0F0 !important;
+    /* 仅显示上下边框，左右无边框（核心修改） */
+    border-top: 0.5px solid #D6D6D6 !important;    /* 上边框：0.5px深灰实心 */
+    border-bottom: 0.5px solid #D6D6D6 !important; /* 下边框：0.5px深灰实心 */
+    border-left: none !important;                /* 左边框：隐藏 */
+    border-right: none !important;               /* 右边框：隐藏 */
+    /* 强制显示，排除隐藏/透明干扰（保留原有） */
+    visibility: visible !important;
+    opacity: 1 !important;
+}</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_8">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QListView" name="chat_info_show">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget3_4" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <spacer name="horizontalSpacer3_4">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>385</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget3_1_2" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>130</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>150</width>
+               <height>30</height>
+              </size>
+             </property>
+             <widget class="QPushButton" name="filetran">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>40</x>
+                <y>0</y>
+                <width>30</width>
+                <height>30</height>
+               </rect>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>30</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>30</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>宋体</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton#filetran {
+    border-image: url(btnimage/文件上传.png) 0 0 0 0 stretch stretch;
+    border: none;
+    background-color: transparent;
+    padding: 0px !important;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="getimage">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>70</x>
+                <y>0</y>
+                <width>30</width>
+                <height>30</height>
+               </rect>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>30</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>30</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>宋体</family>
+                <pointsize>12</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton#getimage {
+    border-image: url(btnimage/截图.png) 0 0 0 0 stretch stretch;
+    border: none;
+    background-color: transparent;
+    padding: 0px !important;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+             <widget class="QPushButton" name="chatrecord">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>100</x>
+                <y>0</y>
+                <width>30</width>
+                <height>30</height>
+               </rect>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>30</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>30</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="font">
+               <font>
+                <family>宋体</family>
+                <pointsize>12</pointsize>
+                <bold>false</bold>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton#chatrecord {
+    border-image: url(btnimage/聊天记录.png) 0 0 0 0 stretch stretch;
+    border: none;
+    background-color: transparent;
+    padding: 0px !important;
+}</string>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget3_5" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>120</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>120</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="ChatInputTextEdit" name="chat_input">
+             <property name="styleSheet">
+              <string notr="true">#chat_input {
+    /* ① 彻底隐藏边框（包括默认的焦点边框） */
+    border: none !important;
+    outline: none !important;
+    
+    
+    /* ③ 底色设为#F0F0F0灰色 */
+    background-color: #F0F0F0 !important;
+    
+    /* 优化：内边距，避免文字贴圆角边缘（可选但推荐） */
+    padding: 6px 12px !important;
+}</string>
+             </property>
+             <property name="readOnly">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="widget3_6" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">#widget3_6 {
+    /* ① 彻底隐藏边框（包括默认的焦点边框） */
+    border: none !important;
+    outline: none !important;
+    
+    
+    /* ③ 底色设为#F0F0F0灰色 */
+    background-color: #F0F0F0 !important;
+    
+    /* 优化：内边距，避免文字贴圆角边缘（可选但推荐） */
+    padding: 6px 12px !important;
+}</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QWidget" name="widgetfile" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>250</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>250</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_12">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>20</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QProgressBar" name="fileprogress">
+                <property name="styleSheet">
+                 <string notr="true">/* 正确：#fileprogress 匹配objectName为fileprogress的控件（整体样式） */
+#fileprogress {
+    border: 1px solid #E0E0E0; /* 进度条边框（灰色，可自定义） */
+    border-radius: 8px; /* 进度条圆角（可选，更美观） */
+    background-color: #F5F5F5; /* 进度条未填充背景色（浅灰） */
+    text-align: center; /* 进度文字居中（可选） */
+}
+
+/* 正确：#fileprogress::chunk 匹配该控件的已填充进度块（核心颜色） */
+#fileprogress::chunk {
+    background-color: rgb(154, 242, 109); /* 目标RGB颜色，完全支持 */
+    border-radius: 4px; /* 进度块圆角（和整体进度条对应，可选） */
+}</string>
+                </property>
+                <property name="value">
+                 <number>24</number>
+                </property>
+                <property name="textVisible">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer3_6">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>415</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget3_6_1" native="true">
+             <property name="minimumSize">
+              <size>
+               <width>120</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>120</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <widget class="QPushButton" name="send_botton">
+              <property name="enabled">
+               <bool>true</bool>
+              </property>
+              <property name="geometry">
+               <rect>
+                <x>10</x>
+                <y>9</y>
+                <width>100</width>
+                <height>31</height>
+               </rect>
+              </property>
+              <property name="font">
+               <font>
+                <family>微软雅黑</family>
+                <pointsize>10</pointsize>
+               </font>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">#send_botton {
+    /* 基础样式：微信原生发送按钮深绿 + 保留原有配置 */
+    border: none !important;                /* 彻底隐藏边框 */
+    border-radius: 4px !important;          /* 四角圆角（匹配微信按钮圆角） */
+    background-color: #07C160 !important;   /* 常态：微信经典发送按钮绿（核心色） */
+    outline: none !important;               /* 去掉焦点框 */
+    color: #FFFFFF !important;              /* 字体纯白色（和微信一致） */
+}
+
+/* 鼠标悬浮：比微信常态绿稍深，视觉反馈自然 */
+#send_botton:hover {
+    background-color: #06B058 !important;   /* 悬浮：深一级微信绿 */
+}
+
+/* 鼠标按下：更深的绿色，模拟按压下沉的质感 */
+#send_botton:pressed {
+    background-color: #059E4E !important;   /* 按下：最深级微信绿 */
+}</string>
+              </property>
+              <property name="text">
+               <string>发送(S)</string>
+              </property>
+             </widget>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="NewFriendInfoWidget">
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QWidget" name="widget3_7" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>30</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>30</height>
+           </size>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_10">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <spacer name="horizontalSpacer_2">
+             <property name="orientation">
+              <enum>Qt::Orientation::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>385</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QWidget" name="widget3_1_3" native="true">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>120</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>120</width>
+               <height>30</height>
+              </size>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_11">
+              <property name="spacing">
+               <number>0</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QPushButton" name="minimize_botton_2">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>宋体</family>
+                  <pointsize>18</pointsize>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#minimize_botton_2 {
+    /* 基础样式：无边框 + 四角圆角 + 透明背景 */
+    border: none !important;                /* 彻底隐藏边框 */
+
+    background: transparent !important;     /* 初始透明 */
+
+    outline: none !important;               /* 去掉焦点框（QT默认点击后会有） */
+}
+
+/* 鼠标悬浮：比#F0F0F0稍深的灰色（#EBEBEB，过渡自然） */
+#minimize_botton_2:hover {
+    background-color: #DCDCDC !important;
+}
+
+/* 鼠标按下：更深一点的灰色（#DCDCDC，质感沉稳） */
+#minimize_botton_2:pressed {
+    background-color: #CCCCCC !important;
+}</string>
+                </property>
+                <property name="text">
+                 <string>-</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="maximize_botton_2">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>黑体</family>
+                  <pointsize>10</pointsize>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#maximize_botton_2 {
+    /* 基础样式：无边框 + 四角圆角 + 透明背景 */
+    border: none !important;                /* 彻底隐藏边框 */
+
+    background: transparent !important;     /* 初始透明 */
+
+    outline: none !important;               /* 去掉焦点框（QT默认点击后会有） */
+}
+
+/* 鼠标悬浮：比#F0F0F0稍深的灰色（#EBEBEB，过渡自然） */
+#maximize_botton_2:hover {
+    background-color: #DCDCDC !important;
+}
+
+/* 鼠标按下：更深一点的灰色（#DCDCDC，质感沉稳） */
+#maximize_botton_2:pressed {
+    background-color: #CCCCCC !important;
+}</string>
+                </property>
+                <property name="text">
+                 <string>□</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="close_botton_2">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>楷体</family>
+                  <pointsize>12</pointsize>
+                  <bold>false</bold>
+                 </font>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">#close_botton_2 {
+    /* 基础样式：无边框 + 四角圆角 + 透明背景 */
+    border: none !important;                /* 彻底隐藏边框 */
+
+    background: transparent !important;     /* 初始透明 */
+    /* 右上角圆角8px（保持原始值，不×5） */
+    border-top-right-radius: 8px !important;
+
+    outline: none !important;               /* 去掉焦点框（QT默认点击后会有） */
+}
+
+/* 鼠标悬浮：比#F0F0F0稍深的灰色（#EBEBEB，过渡自然） */
+#close_botton_2:hover {
+    background-color: #E52222 !important;
+    color: #FFFFFF !important; 
+}
+
+/* 鼠标按下：更深一点的灰色（#DCDCDC，质感沉稳） */
+#close_botton_2:pressed {
+    background-color: #D01E1E !important;
+    color: #FFFFFF !important; 
+}</string>
+                </property>
+                <property name="text">
+                 <string>×</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QWidget" name="FriendInfoShowwidget" native="true">
+          <widget class="QLabel" name="photoArea">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>60</y>
+             <width>80</width>
+             <height>80</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>好友头像</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="nameArea">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>60</y>
+             <width>150</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>待同意的好友的账号</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnAgree">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>240</y>
+             <width>90</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#btnAgree {
+    /* 基础样式：微信原生发送按钮深绿 + 保留原有配置 */
+    border: none !important;                /* 彻底隐藏边框 */
+    border-radius: 4px !important;          /* 四角圆角（匹配微信按钮圆角） */
+    background-color: #07C160 !important;   /* 常态：微信经典发送按钮绿（核心色） */
+    outline: none !important;               /* 去掉焦点框 */
+    color: #FFFFFF !important;              /* 字体纯白色（和微信一致） */
+}
+
+/* 鼠标悬浮：比微信常态绿稍深，视觉反馈自然 */
+#btnAgree:hover {
+    background-color: #06B058 !important;   /* 悬浮：深一级微信绿 */
+}
+
+/* 鼠标按下：更深的绿色，模拟按压下沉的质感 */
+#btnAgree:pressed {
+    background-color: #059E4E !important;   /* 按下：最深级微信绿 */
+}</string>
+           </property>
+           <property name="text">
+            <string>同意</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="btnRefuse">
+           <property name="geometry">
+            <rect>
+             <x>300</x>
+             <y>240</y>
+             <width>90</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>12</pointsize>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">#btnRefuse {
+    /* 基础样式：微信原生发送按钮深绿 + 保留原有配置 */
+    border: none !important;                /* 彻底隐藏边框 */
+    border-radius: 4px !important;          /* 四角圆角（匹配微信按钮圆角） */
+    background-color: #F0F0F0 !important;   /* 常态：微信经典发送按钮绿（核心色） */
+    outline: none !important;               /* 去掉焦点框 */
+
+}
+
+/* 鼠标悬浮：比#F0F0F0稍深的灰色（#EBEBEB，过渡自然） */
+#btnRefuse:hover {
+    background-color: #DCDCDC !important;
+}
+
+/* 鼠标按下：更深一点的灰色（#DCDCDC，质感沉稳） */
+#btnRefuse:pressed {
+    background-color: #CCCCCC !important;
+}</string>
+           </property>
+           <property name="text">
+            <string>拒绝</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="cheakinfoArea">
+           <property name="geometry">
+            <rect>
+             <x>230</x>
+             <y>110</y>
+             <width>150</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>验证消息</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="Friend_status">
+           <property name="geometry">
+            <rect>
+             <x>190</x>
+             <y>180</y>
+             <width>150</width>
+             <height>30</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ChatInputTextEdit</class>
+   <extends>QTextEdit</extends>
+   <header>mainwindow.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
